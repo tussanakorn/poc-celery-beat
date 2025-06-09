@@ -1,0 +1,21 @@
+services:
+  redis:
+    image: 'redis:alpine'
+    ports:
+      - 6379:6379
+
+  redisinsight:
+    image: redis/redisinsight:latest
+    container_name: redisinsight
+    ports:
+      - 5540:5540
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    ports:
+      - 5672:5672      # AMQP port
+      - 15672:15672    # Management UI port
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
