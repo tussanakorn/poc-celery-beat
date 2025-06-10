@@ -6,5 +6,5 @@ from celery import Celery
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_celery.settings')
 
 app = Celery('django_celery')
-app.conf.broker_url = 'redis://localhost:6379/0'
+app.conf.broker_url = 'pyamqp://guest@localhost//'
 app.autodiscover_tasks()
